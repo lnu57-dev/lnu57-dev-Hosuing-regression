@@ -1,11 +1,11 @@
-import streamlit as st
-import pandas as pd
+# Flask example
+from flask import Flask, request, render_template
+app = Flask(__name__)
 
-st.title("🏠 Housing Price Predictions")
-
-df = pd.read_csv("pytorch_predictions.csv")
-st.subheader("Predicted Prices Table")
-st.dataframe(df)
-
-if st.checkbox("Show summary statistics"):
-    st.write(df.describe())
+@app.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        # parse form values: request.form['income'], etc.
+        # compute prediction, return template with prediction_text
+        pass
+    return render_template('index.html')
